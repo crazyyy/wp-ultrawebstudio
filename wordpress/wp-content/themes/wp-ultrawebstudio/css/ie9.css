@@ -1,0 +1,10 @@
+.testimonials_slider .client_testimonials h5 sub,#content div.testimonials-text h5 sup,#content .box-testimonials-client h5 sup ,#content .team_member h5 sub, ul.our_awards li sub,ul.our_awards li sub a,
+.box-testimonials-client h5 sup { font-size: 13px;}
+
+#content .promotion_box p sub,.rcp_date sub {  font-size:14px;}
+
+.flexslider_basic .flex-control-nav { bottom: -26px;}
+
+#commentform input { line-height:0px; }
+
+#content .tm_box_content h6 sub { font-size: 13px; }

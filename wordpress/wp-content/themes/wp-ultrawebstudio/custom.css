@@ -1,0 +1,10 @@
+/* NOTE : Add your custom css styles here and take backup of this file before updateing the theme with latest version */
+
+/* ******** CUSTOM CSS STYLE FOR PORTFOLIO HEADINGS FONT FAMILY ******** */
+
+#content .pf_box2 .pf_details3 h3, #content .pf_box2 .pf_details3 h3 a,
+#content .pf_box2 .pf_details3 h3 a:hover,#content .pf_details2 h3, 
+#content .pf_details2 h3 a,#content .pf_details1 h3, 
+#content .pf_details1 h3 a { font-family:arial,verdana,tahoma; }
+
+/* ************************************************************************ */

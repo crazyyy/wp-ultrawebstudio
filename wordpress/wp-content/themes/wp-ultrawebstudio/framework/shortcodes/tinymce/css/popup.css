@@ -1,0 +1,163 @@
+
+/* GLOBAL
+------------------------------------------------------- */
+#swm-popup {
+	width: 800px;
+	font: 12px/20px Arial, Helvetica, sans-serif;
+	overflow: hidden;}
+	
+#swm-popup.no_preview { 	width: 560px; }
+
+#swm-popup * { font: 12px/20px Arial, Helvetica, sans-serif;	 }
+
+/* form side */
+#swm-sc-form-wrap {
+	width: 550px;
+	float: left;}
+	
+#swm-sc-form-wrap #swm-sc-form-head {
+	width: 520px;
+	padding: 15px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 1;
+	text-shadow: 0 -1px 0 #000;
+	background-color: #404040;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#404040), to(#393939)); 
+	background-image: -webkit-linear-gradient(top, #404040, #393939); 
+	background-image: -moz-linear-gradient(top, #404040, #393939); 
+	background-image: -ms-linear-gradient(top, #404040, #393939); 
+	background-image: -o-linear-gradient(top, #404040, #393939); 
+	background-image: linear-gradient(top, #404040, #393939);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#404040', EndColorStr='#393939'); }
+	
+#swm-popup.no_preview #swm-sc-form-wrap #swm-sc-form-head { width: 530px; }
+#swm-sc-form-wrap #swm-sc-form { 
+	width: 490px;
+	padding: 15px; }
+
+/* FORM */
+
+#swm-sc-form-table { width: 520px; }
+
+#swm-sc-form-table tbody tr.form-row {
+	display: block;
+	padding: 5px 0;
+	border-bottom: solid 1px #eaeaea; }
+	
+#swm-sc-form-table tbody:last-child tr.form-row { border-bottom: none; }
+
+#swm-sc-form-table tbody tr.form-row .label {
+	width: 130px;
+	text-align: right;
+	vertical-align: top;
+	line-height: 35px;
+	padding-right: 20px; }
+	
+#swm-sc-form-table tbody tr.form-row .field { width: 370px; }
+#swm-sc-form-table tbody tr.form-row .swm-insert { color: #fff; }
+
+/* Child Rows, Sortable */
+#swm-sc-form-table .has-child #form-child-add {
+	display: block;
+	width: 520px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 0;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center; }
+	
+#swm-sc-form-table .has-child .child-clone-rows { display: block; }
+
+#swm-sc-form-table .has-child .child-clone-rows .child-clone-row {
+	padding: 8px 15px;
+	background: #f7f7f7;
+	border: solid 1px #e0e0e0;
+	margin-bottom: 10px;
+	cursor: move;
+	-moz-border-radius: 5px;
+	border-radius: 5px; } 
+	
+#swm-sc-form-table .has-child .sortable-placeholder {
+	border: dashed 2px #e0e0e0;
+	margin-bottom: 10px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #f7f7f7;
+	height: 40px;}
+	
+#swm-sc-form-table .has-child .child-clone-rows .child-clone-row .child-clone-row-form { display: block; }
+
+#swm-sc-form-table .has-child .child-clone-rows .child-clone-row .child-clone-row-form .child-clone-row-form-row {
+	display: block;
+	padding: 7px 0;
+	border-bottom: solid 1px #ddd; }
+	
+#swm-sc-form-table .has-child .child-clone-rows .child-clone-row .child-clone-row-form .child-clone-row-form-row .child-clone-row-label label {
+	display: block;
+	font-weight: bold;
+	font-style: italic;
+	padding-bottom: 7px;
+	line-height: 1; }
+	
+#swm-sc-form-table .has-child .child-clone-rows .child-clone-row .child-clone-row-remove {
+	color: #FF0000;
+	padding: 1px; }
+	
+#swm-sc-form-table .has-child .child-clone-rows .child-clone-row .child-clone-row-remove:hover {
+	color: #fff;
+	background: #FF0000; }	
+
+/* Form Elements */
+
+/* All */
+#swm-sc-form-table tbody tr.form-row .swm-form-text,
+#swm-sc-form-table tbody tr.form-row .swm-form-textarea,
+#swm-sc-form-table tbody tr.form-row .swm-form-select {
+	width: 350px;
+	padding: 5px 10px;
+	background: #f7f7f7;
+	border: none;
+	border-left: solid 1px #ddd;
+	border-top: solid 1px #ddd;
+	-moz-border-radius: 5px;
+	border-radius: 5px; }
+	
+#swm-sc-form-table tbody tr.form-row .swm-form-text:hover,
+#swm-sc-form-table tbody tr.form-row .swm-form-textarea:hover,
+#swm-sc-form-table tbody tr.form-row .swm-form-select:hover {	
+	background: #eee; border-color:#ccc; }	
+	
+#swm-sc-form-table tbody tr.form-row.has-child .swm-form-text,
+#swm-sc-form-table tbody tr.form-row.has-child .swm-form-textarea,
+#swm-sc-form-table tbody tr.form-row.has-child .swm-form-select {
+	background: #fff;
+	width: 485px; }
+
+/* Textarea */
+#swm-sc-form-table tbody tr.form-row .swm-form-textarea { height: 120px; }
+
+#swm-sc-form-table tbody tr.form-row.has-child .swm-form-textarea { height: 100px; }
+
+/* Select */
+#swm-sc-form-table tbody tr.form-row .swm-form-select {
+	display: block;
+	height: 25px; }
+	
+#swm-sc-form-table tbody tr.form-row.has-child .swm-form-select {
+	width: auto;
+	height: 25px; }
+
+/* Description */
+#swm-sc-form-table tbody tr.form-row .field .swm-form-desc,
+#swm-sc-form-table tbody tr.form-row .child-clone-row-desc {
+	display: block;
+	font-size:  11px;
+	color: #999;
+	line-height:16px;
+	font-style: normal;
+	padding-top: 5px; }

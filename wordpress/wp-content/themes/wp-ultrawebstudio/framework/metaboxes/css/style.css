@@ -1,0 +1,224 @@
+/* =Styles for 'normal' meta boxes
+-------------------------------------------------------------- */
+
+.rwmb-field {
+	margin: 20px 0;
+}
+.rwmb-label,
+.rwmb-input {
+	display: inline-block;
+	vertical-align: top;
+}
+.rwmb-label {
+	display:inline-block;
+	font-weight: bold;
+	line-height: 30px;
+	float:left;
+	width:250px;
+	margin-right: 20px;
+}
+
+.rwmb-label small { font-size: 11px; color:#666; font-weight: normal; padding:0; margin:5px 0 0 0; line-height: 16px; display:block;}
+
+
+
+.rwmb-label.required {
+	font-weight: bold;
+}
+.rwmb-label.required > span
+{
+	color: #c00;
+}
+
+/* 75% if field has label, 100% if no label */
+.rwmb-input {
+	width:400px;
+}
+.rwmb-label ~ .rwmb-input {
+	display:inline-block;
+
+}
+.rwmb-input h4 {
+	margin: 0;
+}
+.rwmb-textarea {
+	resize: vertical;
+}
+
+.rwmb-field p.description { font-size: 11px; font-style: normal;clear:both;}
+
+/* Clone */
+.rwmb-clone {
+	min-height: 24px;
+}
+.rwmb-clone > input[type="radio"],
+.rwmb-clone > input[type="checkbox"] {
+	margin: 6px 0 0 4px;
+}
+.rwmb-button {
+	display: inline;
+	float: right;
+}
+
+/* Fix width to not overlap button for cloned sliders */
+.rwmb-clone .rwmb-slider {
+	width: 80%;
+	margin: 6px 0 0;
+}
+
+/* Fix buttons after sliders */
+.clearfix + .rwmb-button {
+	margin-top: -16px;
+}
+
+/* Fix empty block below admin footer (issue #24) */
+#ui-datepicker-div {
+	display: none;
+}
+
+/* jQuery validation */
+label.error {
+	padding-left: 3px;
+	color: red;
+}
+input.error,
+textarea.error,
+select.error {
+	border: #c00 solid 1px !important;
+	background: #ffebe8 !important;
+}
+
+/* =Styles for 'side' meta boxes
+-------------------------------------------------------------- */
+
+#side-sortables .rwmb-label,
+#side-sortables .rwmb-input {
+	width: 200px;	
+}
+
+.rwmb-input { float:left; margin-right: 10px;  }
+.rwmb-input input, .rwmb-input textarea { float:left;border-color:#d1d1d1;margin-bottom: 19px; }
+.drag-drop-buttons input {float:none;}
+.rwmb-input input { }
+
+input.rwmb-text { width:400px;height:32px; padding-left: 8px;}
+
+ul.rw-taxonomy-tree li { float:left; margin-right: 30px; }
+.swm_divider_line { border-bottom: 1px dotted #e5e5e5; margin-top: 0px;}
+.rwmb-text-large { width:500px;}
+
+ul.rw-taxonomy-tree li label { margin-left:5px;}
+
+input.rwmb-color { height:30px; border:1px solid #d1d1d1;border-radius: 3px;overflow: hidden; width:100px;  }
+
+
+/*Tooltip Styles*/
+
+div.swm_meta_desc { float:left; }
+
+a.swm_meta_desc_help { background-image: url(../images/help-icon.png); width:16px; height:16px; float:right; display:block; margin-top: 7px;}
+
+.tipsy {
+	padding: 5px; 
+	font-size: 12px;	
+	background-repeat: no-repeat;  
+	background-image: url(../images/tipsy.gif);	}
+
+.tipsy-inner { 
+	padding: 15px; 
+	background-color: white; 
+	color: #363636; 
+	line-height: 20px;
+	max-width: 250px; 
+	text-align: center; 
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc ;		
+	border-radius: 5px;}
+
+.tipsy-north { background-position: top center; }
+.tipsy-south { background-position: bottom center; }
+.tipsy-east { background-position: right center; }
+.tipsy-west { background-position: left center; }
+
+/*CHCEKBOX ON/OFF STYLES*/
+
+.rwmb-input .tzCheckBox{
+	background:url(../images/checkbox-show-hide.png) no-repeat right bottom;
+	display:inline-block;
+	width:85px;
+	height:30px;
+	white-space:nowrap;
+	position:relative;
+	cursor:pointer;
+	text-indent: -9999px;
+	margin-bottom: 20px; }
+
+.rwmb-input .tzCheckBox.checked{
+	background-position:top left; }
+
+.rwmb-input .tzCBPart{
+	background:url(../images/checkbox-show-hide.png) no-repeat left bottom;
+	width:85px;
+	position:absolute;	
+	height:30px;
+	overflow: hidden; }
+
+.rwmb-input .tzCheckBox.checked .tzCBPart{
+	background-position:top right;
+	left:auto; }
+
+/***************************************************************
+* Select Dropdown
+****************************************************************/
+
+#post-body .rwmb-select option {
+	height: auto;
+	min-width: 360px;
+	margin:-2px 0 0 0; }
+
+.jquery-aselect-wrap { 
+	position: relative; 
+	padding: 0; margin: 0 3px 20px 0 !important;
+	height:30px !important; 
+	background: #ffffff url("../images/select-item.png") no-repeat right top;
+	border:1px solid #d1d1d1;
+	border-radius: 3px;
+	color: #363636;  
+	float: left; 
+	cursor: pointer; }
+
+.jquery-aselect-wrap span { 
+	position: absolute;
+	height:30px; 
+	padding:0px  !important;  
+	font-size: 12px; 
+	color: #363636 !important; 
+	cursor: pointer; 
+	line-height:31px !important; 
+	text-indent: 8px; }
+
+.no-js #body div.jquery-aselect-wrap span {display: none;}
+
+.js #body div.jquery-aselect-wrap span {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position: absolute;
+	display: block;
+	line-height:30px;	
+	font-size: 11px;
+	height:30px;
+	text-overflow: ellipsis;}
+
+.js div.jquery-aselect-wrap select { 
+	position: absolute;
+	opacity: 0;filter: alpha(opacity=0);
+	padding: 0;}
+
+.js div.jquery-aselect-wrap select.selectors { position: absolute; font-size: 11px;border: 0;height:30px;}
+.jquery-aselect { opacity: 0; filter: alpha(opacity = 0); }
+
+.js div.jquery-aselect-wrap option{ padding:5px 8px; font-size: 12px; }

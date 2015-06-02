@@ -1,0 +1,30 @@
+.flex-direction-nav .flex-next{ background:#000 url(../images/backgrounds/arrow-next.png) no-repeat 0 2px; }
+.flex-direction-nav .flex-prev { background:#000 url(../images/backgrounds/arrow-previous.png) no-repeat 0 2px; }
+.pf_image_caption { background: url(../images/backgrounds/caption-bg.png) 0 0; }
+.button, a.button, input.button, button.grey, .dropcap.grey, .myfancy-box h3.grey-box { 
+border: 1px solid #575757; }
+
+
+.team_member h5 sub,.box-testimonials-client h5 sup { font-size: 13px; }
+.team_member ul li,.team_member ul li img { display: inline-block; }
+.team_member ul li a { margin:0 2px 0 0; }
+ul.our_awards li sub,ul.our_awards li sub a { font-size: 13px; }
+
+#content .flexslider ul.slides > li .tm_hover .social-icons ul li { width:20px; height:20px; }
+
+#content .tm_box_content h6 sub { font-size: 13px; }
+
+.testimonials_slider .client_testimonials h5 sub,#content div.testimonials-text h5 sup,#content .box-testimonials-client h5 sup,.rcp_date sub { font-size: 13px;}
+
+#content .promotion_box p sub {font-size:14px;}
+
+.flexslider_basic .flex-control-nav { bottom: -25px;}
+
+#content .sti-menu li a { border:1px solid #e8e8e8; }
+
+.swm_slider_box .flexslider .flex-direction-nav a { width:19px; height:19px; }
+
+.swm_slider_box .flex-direction-nav .flex-next:hover,.swm_slider_box .flex-direction-nav .flex-prev:hover { background-position: 0  -18px; }
+
+.pf_details3 { display: none; }
+.pf_overlay:hover .pf_details3 { display:block;}

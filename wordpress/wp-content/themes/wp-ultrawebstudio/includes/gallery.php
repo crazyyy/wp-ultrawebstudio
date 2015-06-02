@@ -1,0 +1,1 @@
+<?php swm_blog_gallery($post->ID, 'thumbnail-full'); ?>
