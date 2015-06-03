@@ -1,46 +1,21 @@
-<?php 
-
-get_header(); 
-
-	$swm_error_page_content = of_get_option('swm_error_page_content');	
-	$swm_error_page_image_url = of_get_option('swm_error_page_image');	
-	$swm_error_page_image = '<img src="'.$swm_error_page_image_url.'" alt="" />';
-	
-	/* ----------------------------------------------------------------------------------
-				Display Error Image
-	---------------------------------------------------------------------------------- */	
-	?>
-	
-	<div class="one_half">
-
-		<?php 
-
-		$error_img = (of_get_option('swm_layout_color') == 'dark') ? 'error-page2.jpg' : 'error-page.jpg';
-
-		$error_page_image = (of_get_option('swm_error_page_image') <> '') ? esc_attr(of_get_option('swm_error_page_image')) : get_template_directory_uri().'/framework/images/'.$error_img; ?>
-		
-		<img src="<?php echo esc_url($error_page_image); ?>" alt="" />
-	
-	</div>
-	
-	<?php
-	/* -----------------------------------------------------------------------------------
-				Display Content
-	----------------------------------------------------------------------------------	*/
-	?>
-	
-	<div class="one_half last">
-	
-		<?php if ($swm_error_page_content != '') { ?>
-		
-			<?php echo do_shortcode($swm_error_page_content); ?>	
-		
-		<?php } else { ?>	
-			
-			<?php //echo wp_list_pages(); ?>
-			
-		<?php } ?>
-	
-	</div>
-
+<?php
+/**
+ *
+ * 404.php
+ *
+ * The template for displaying 404 pages (Not Found).
+ * Used when WordPress cannot find a post or page that matches the query.
+ *
+ * To change the error message:
+ * 1. Open functions.php file
+ * 2. Find the theme_404_content() function
+ * 3. Change the error_message variable value
+ *
+ * Additional settings are available under the Appearance -> Theme Options -> Pages.
+ *
+ */
+get_header(); ?>
+			<?php get_sidebar('top'); ?>
+			<?php theme_404_content(); ?>
+			<?php get_sidebar('bottom'); ?>
 <?php get_footer(); ?>

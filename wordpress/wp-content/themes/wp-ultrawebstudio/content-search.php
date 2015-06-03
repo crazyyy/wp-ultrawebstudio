@@ -1,53 +1,35 @@
-<ul class="search-list">	
-		
-		<?php
-
-		/* ----------------------------------------------------------------------------------
-			Search List
-		---------------------------------------------------------------------------------- */	
-		
-		if ( have_posts() ) : 
-			while (have_posts()) : the_post(); ?>					
-				
-				<li>
-					<h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
-					<p>
-						<?php
-						ob_start();
-						the_content();
-						$old_content = ob_get_clean();
-						$new_content = strip_tags($old_content);
-						echo substr($new_content,0,300).'...';
-						?>
-					</p>
-				</li>
-						
-
-		<?php endwhile; 
-
-		else: ?>
-			
-			<h3><?php _e('No Results Found.', 'swmtranslate'); ?></h3>
-			
-			<p><?php _e('We\'re sorry, but the page you requested could not be found. Try refining your search, or use the navigation above to locate the post.', 'swmtranslate'); ?></p>
-
-	<?php endif; ?>		
-</ul>
-	
-	<?php 
-	
-	/* ----------------------------------------------------------------------------------
-		Pagination
-	---------------------------------------------------------------------------------- */	
-	
-	 /* Display navigation to next/previous pages when applicable */ ?>
-<?php if (  $wp_query->max_num_pages > 1 ) : ?>
-			 <?php if(function_exists('swm_pagination')) { ?>
-				 <?php swm_pagination(); ?> <br /><br />
-			 <?php }else{ ?>
-				<div id="nav-below" class="navigation">
-					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&laquo;</span> Older', 'templatesquare' ) ); ?></div>
-					<div class="nav-next"><?php previous_posts_link( __( 'Newer <span class="meta-nav">&raquo;</span>', 'templatesquare' ) ); ?></div>
-				</div><!-- #nav-below -->
-			<?php }?>
-<?php endif; ?>
+<?php
+/**
+ *
+ * content*.php
+ *
+ * The post format template. You can change the structure of your posts or add/remove post elements here.
+ * 
+ * 'id' - post id
+ * 'class' - post class
+ * 'thumbnail' - post icon
+ * 'title' - post title
+ * 'before' - post header metadata
+ * 'content' - post content
+ * 'after' - post footer metadata
+ * 
+ * To create a new custom post format template you must create a file "content-YourTemplateName.php"
+ * Then copy the contents of the existing content.php into your file and edit it the way you want.
+ * 
+ * Change an existing get_template_part() function as follows:
+ * get_template_part('content', 'YourTemplateName');
+ *
+ */
+global $post;
+theme_post_wrapper(
+		array(
+			'id' => theme_get_post_id(),
+			'class' => theme_get_post_class(),
+			'title' => theme_get_meta_option($post->ID, 'theme_show_post_title') ? '<a href="' . get_permalink($post->ID) . '" rel="bookmark" title="' . strip_tags(get_the_title()) . '">' . get_the_title() . '</a>' : '',
+			'heading' => theme_get_option('theme_posts_article_title_tag'),
+			'before' => theme_get_metadata_icons('date,author,edit', 'header'),
+			'content' => theme_highlight_excerpt(get_search_query(), theme_get_content()),
+			'after' => theme_get_metadata_icons('category,tag', 'footer')
+		)
+);
+?>

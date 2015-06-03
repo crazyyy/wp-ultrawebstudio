@@ -1,29 +1,16 @@
-<?php 
+<?php get_header(); ?>
+			<?php get_sidebar('top'); ?>
+			<?php
 
-get_header(); ?>
-		
-	<!-- *************************************** -->	
-	<div class="custom_two_third2">
-	
-	<?php
-	if ( have_posts() ) while ( have_posts() ) : the_post();	
-	
-	the_content();
-	wp_link_pages(array('before' => '<p><strong>'.__('Pages:', 'framework').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number'));
-	
-	endwhile;		
-	?>
-	
-	</div>	
-
-	<div id="sidebar_large">				
-		
-		<?php get_sidebar(); ?>	
-
-	</div>
-
-<?php
-
-get_footer(); 
-
-?>
+			if (have_posts()) {
+				/* Start the Loop */
+				while (have_posts()) {
+					the_post();
+					get_template_part('content', 'page');
+				}
+			} else {
+				theme_404_content();
+			}
+			?>
+			<?php get_sidebar('bottom'); ?>
+<?php get_footer(); ?>

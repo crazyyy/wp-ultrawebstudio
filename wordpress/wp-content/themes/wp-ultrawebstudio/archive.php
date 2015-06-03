@@ -1,45 +1,65 @@
-<?php 
+<?php
+/**
+ *
+ * archive.php
+ *
+ * The archive template. Used when a category, author, or date is queried.
+ * Note that this template will be overridden by category.php, author.php, and date.php for their respective query types. 
+ *
+ * More detailed information about template’s hierarchy: http://codex.wordpress.org/Template_Hierarchy
+ *
+ */
+get_header(); ?>
+			<?php get_sidebar('top'); ?>
+			<?php
+			if (have_posts()) {
+				global $posts;
+				$post = $posts[0];
+				theme_ob_start();
 
-get_header();
-	
-	/* Display blog posts with sidebar */
-	
-	$swm_blog_sidebar_position = of_get_option('swm_blog_sidebar_position');	
-	
-	if ($swm_blog_sidebar_position == 'left-sidebar') {	?>
-	
-		<div id="left-sidebar">
+				if (is_category()) {
+					echo '<h4>' . single_cat_title('', false) . '</h4>';
+					echo category_description();
+				} elseif (is_tag()) {
+					echo '<h4>' . single_tag_title('', false) . '</h4>';
+				} elseif (is_day()) {
+					echo '<h4>' . sprintf(__('Daily Archives: <span>%s</span>', THEME_NS), get_the_date()) . '</h4>';
+				} elseif (is_month()) {
+					echo '<h4>' . sprintf(__('Monthly Archives: <span>%s</span>', THEME_NS), get_the_date('F Y')) . '</h4>';
+				} elseif (is_year()) {
+					echo '<h4>' . sprintf(__('Yearly Archives: <span>%s</span>', THEME_NS), get_the_date('Y')) . '</h4>';
+				} elseif (is_author()) {
+					the_post();
+					echo theme_get_avatar(array('id' => get_the_author_meta('user_email')));
+					echo '<h4>' . get_the_author() . '</h4>';
+					$desc = get_the_author_meta('description');
+					if ($desc) {
+						echo '<div class="author-description">' . $desc . '</div>';
+					}
+					rewind_posts();
+				} elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
+					echo '<h4>' . __('Blog Archives', THEME_NS) . '</h4>';
+				}
+				theme_post_wrapper(array('content' => theme_ob_get_clean(), 'class' => 'breadcrumbs'));
 
-			<div id="sidebar_large">				
-		
-				<?php get_sidebar(); ?>	
+				/* Display navigation to next/previous pages when applicable */
+				if (theme_get_option('theme_top_posts_navigation')) {
+					theme_page_navigation();
+				}
 
-			</div>
+				/* Start the Loop */
+				while (have_posts()) {
+					the_post();
+					get_template_part('content', get_post_format());
+				}
 
-		</div>	
-		
-		<div class="custom_two_third2 last">
-		
-			<?php get_template_part('content', 'archive'); ?>
-
-		</div>
-		
-	<?php } else { ?>
-		
-		<div class="custom_two_third2">
-		
-			<?php get_template_part('content', 'archive'); ?>
-
-		</div>
-		
-		<div id="sidebar_large">				
-		
-			<?php get_sidebar(); ?>	
-
-		</div>
-		
-	<?php }	
- 
-get_footer(); 
-
-?>
+				/* Display navigation to next/previous pages when applicable */
+				if (theme_get_option('theme_bottom_posts_navigation')) {
+					theme_page_navigation();
+				}
+			} else {
+				theme_404_content();
+			}
+			?>
+			<?php get_sidebar('bottom'); ?>
+<?php get_footer();

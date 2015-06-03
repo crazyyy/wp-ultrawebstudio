@@ -1,102 +1,62 @@
 <?php
 /**
- * @package WordPress
- * @subpackage Default_Theme
+ *
+ * comments.php
+ *
+ * The comments template. Used to display post or page comments and comment form.
+ * 
+ * Additional settings are available under the Appearance -> Theme Options -> Comments.
+ *
  */
-
-// Do not delete these lines
 if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-	die (_e( 'Please do not load this page directly. Thanks!', 'swmtranslate' ));
-
-if ( post_password_required() ) { ?>
-	<p class="nocomments">
-		<?php _e( 'This post is password protected. Enter the password to view comments.', 'swmtranslate' ); ?>
-	</p>
-	<?php 
-	return; 
-} ?>
-
-<!-- Blog Responses Start -->
-<div id="blog_responses">
-	<?php if ( have_comments() ) : ?>
-
-		<div class="blog-single-heading">
-			<h4 class="title_line"><span><?php comments_number('No Comments', 'One Comment', '% Comments' );?></span></h4>
-		</div>	
-		
-<?php
-/* ----------------------------------------------------------------------------------
-	Comments Listing
----------------------------------------------------------------------------------- */ ?>
-
-		<section id="comment-wrap">
-			<ol class="commentlist">	
-				<?php wp_list_comments( array( 'callback' => 'swm_comment_listing' ) );	?>
-			</ol>
-		<div class="clear"></div>
-		</section>
+	die('Please do not load this page directly. Thanks!');
 	
+if (post_password_required()) {
+?>
+    <div class="my-comments">
+        <h2 class="my-postheader nocomments"><?php _e('This post is password protected. Enter the password to view any comments.', THEME_NS) ?></h2>
+    </div>
 <?php
-/* ----------------------------------------------------------------------------------
-	Comments Pagination
----------------------------------------------------------------------------------- */ ?>
-
-		<?php if (get_option('comments_per_page') > 0) : ?>
-
-			<div class="paginate-com">
-				<?php paginate_comments_links(array('prev_text' => '&laquo;', 'next_text' => '&raquo;')); ?>
-			</div>	
-	 
-		<?php endif; 
-	
-	else : // this is displayed if there are no comments so far ?>
- 
+	return;
+}
+if (have_comments()) {
+?>
+    <div class="my-comments">
+        <h2 class="my-postheader comments"><?php printf(
+            _n('One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), THEME_NS),
+            number_format_i18n(get_comments_number()),  
+            get_the_title()
+        ); ?></h2>
+<?php	
+    theme_ob_start();
+    paginate_comments_links();
+    $pagination = theme_stylize_pagination(theme_ob_get_clean());
+    echo $pagination;		
+?>
+        <ul id="comments-list">
+            <?php wp_list_comments('type=all&callback=theme_comment'); ?>
+        </ul>
+<?php echo $pagination; ?>
+    </div>
 <?php
-/* ----------------------------------------------------------------------------------
-	Comments Open/Close message
----------------------------------------------------------------------------------- */ ?>
+}
+if (!comments_open()) {
+    return;
+}
+/* comment form */
+theme_ob_start();
+$args = array();
+if (theme_get_option('theme_comment_use_smilies')) {
 
-		<?php if ( comments_open() ) : 
-				
-				/* If comments are open, but there are no comments. */
-	
-		else : // comments are closed ?>
-			
-					<p class="nocomments">
-						<?php _e( 'Comments are closed.', 'swmtranslate' ); ?>
-					</p>
+	function theme_comment_form_field_comment($form_field) {
+		theme_include_lib('smiley.php');
+		return theme_get_smilies_js() . '<p class="smilies">' . theme_get_smilies() . '</p>' . $form_field;
+	}
 
-		<?php endif; ?>
-	<?php endif; ?>
-</div>
-<!-- Blog Responses End -->
-
-<div class="clear"></div>
-
-<?php
-
-$swm_num_comments = get_comments_number();
-
-if ($swm_num_comments != 0 ) { ?>
-	
-<?php }
-
-?>	
-
-<?php
-/* ----------------------------------------------------------------------------------
-	Comments Form
----------------------------------------------------------------------------------- */ ?>
-
-<?php if ( comments_open() ) : ?>		
-	
-	<?php comment_form( array(
-		'label_submit' => esc_html__( 'Submit', 'swmtranslate' ), 
-		'title_reply' => __( '<span>Leave a Reply</span>', 'swmtranslate' ), 
-		'cancel_reply_link' => esc_html__( 'Cancel Reply' , 'swmtranslate' ), 
-		'title_reply_to' => esc_html__( 'Leave a Reply' , 'swmtranslate' )) 
-		); 
-	?>
-
-<?php endif;?>
-
+	add_filter('comment_form_field_comment', 'theme_comment_form_field_comment');
+}
+comment_form();
+echo str_replace(
+    array('id="respond"', '<h3', 'id="reply-title"', '</h3>', 'logged-in-as', 'type="submit"'), 
+    array('id="respond" class="my-commentsform"', '<h2', 'id="reply-title" class="my-postheader"', '</h2>', 'my-postcontent logged-in-as', 'class="my-button" type="submit"'), 
+    theme_ob_get_clean());

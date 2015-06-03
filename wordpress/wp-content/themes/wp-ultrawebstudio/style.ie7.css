@@ -1,0 +1,104 @@
+/* Created by Artisteer v4.1.0.59861 */
+
+.my-header, #my-header-bg, .my-layout-cell, .my-layout-wrapper, .my-footer, .my-nav, #my-hmenu-bg, .my-sheet,
+.clearfix {
+   zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).className="cleared");
+}
+
+.my-textblock > div {
+   display: block;
+   line-height: normal;
+   zoom: 1;
+}
+
+.my-header
+{
+   z-index: 1;
+   background-image: [headerimage];
+   background-position: [headerposition];
+}
+
+#my-header-bg 
+{
+   display: none;
+}
+
+.my-hmenu>li, .my-hmenu>li>a
+{
+   display: inline !important;
+   zoom: 1;
+   float: none !important;
+   vertical-align: top;
+}
+ul.my-hmenu, ul.my-hmenu ul {
+   zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).className="cleared");
+}
+#my-hmenu-bg 
+{
+   display: none;
+}
+
+ul.my-hmenu>li:first-child {
+   padding-right:2px;
+}
+
+ul.my-hmenu ul, .desktop-nav ul.my-hmenu>li.ext:hover>a{
+   background-color: #577A88 !important;
+}
+
+.my-content-layout, .my-content-layout-row, .my-layout-cell 
+{
+   display: block;
+   zoom: 1;
+}
+.my-layout-cell
+{
+   position:relative;
+   float: left;
+   clear: right;
+}
+
+input[type="text"]
+{
+   margin:0 0 0 -3px;
+   zoom:expression(runtimeStyle.zoom = 1, parentNode.insertBefore(document.createElement('div'), this).appendChild(this));
+}
+
+* html input[type="text"]
+{
+   margin :0;
+}
+
+form.my-search>input[type="text"]
+{
+   margin:0 0 0 -3px;
+   zoom:expression(runtimeStyle.zoom = 1, parentNode.insertBefore(document.createElement('div'), this).appendChild(this));
+}
+
+form.my-search div>input[type="text"]
+{
+   width: 100%;
+}
+
+* html form.my-search>input[type="text"] 
+{
+   margin :0;
+}
+
+.my-postcontent {
+   height: 1%;
+}
+
+.close-alt, .arrow-right-alt, .arrow-left-alt {
+   display: block !important;
+}
+.cw, .ccw {
+   display: none !important;
+}
+
+.my-sidebar1 
+{
+   width: auto;
+   float:none;
+}
+
