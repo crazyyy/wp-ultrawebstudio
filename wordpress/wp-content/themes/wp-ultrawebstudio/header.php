@@ -31,7 +31,7 @@ wp_head();
             <?php if ( is_front_page() && is_home() ){ } else { ?>
                 <a href="<?php echo home_url(); ?>">
             <?php  } ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
             <?php if ( is_front_page() && is_home() ){
             } else { ?>
                 </a>
@@ -48,9 +48,15 @@ wp_head();
               'class' => 'my-hmenu'
             )
           );
-          get_sidebar('nav');
         ?>
         </nav>
+
+        <ul class="phone-nav">
+          <li><a href="<?php echo home_url(); ?>/contacts.htm">Контакты</a></li>
+          <li><a class="eModal-1" href="">Обратный звонок</a></li>
+          <li><a href="tel:+74951112211">+7 (495) 1112211</a></li>
+        </ul><!-- phone-nav -->
+
       </header>
 
 <div class="my-layout-wrapper">

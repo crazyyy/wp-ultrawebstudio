@@ -88,7 +88,10 @@ add_theme_support('nav-menus');
 add_theme_support('automatic-feed-links');
 add_theme_support('post-formats', array('aside', 'gallery'));
 
-register_nav_menus(array('primary-menu' => __('Primary Navigation', THEME_NS)));
+register_nav_menus(array(
+  'primary-menu' => __('Primary Navigation', THEME_NS),
+  'header-menu' => __('Меню в шапке', 'wpeasy')
+  ));
 
 
 function theme_header_image_script() {
@@ -814,5 +817,3 @@ function theme_ob_get_clean() {
 	ob_end_flush();
 	return array_pop($theme_ob_stack);
 }
-
-// add 2015-06-03

@@ -15,7 +15,6 @@
  *
  */
 get_header(); ?>
-			<?php get_sidebar('top'); ?>
 			<?php theme_404_content(); ?>
 			<?php get_sidebar('bottom'); ?>
 <?php get_footer(); ?>

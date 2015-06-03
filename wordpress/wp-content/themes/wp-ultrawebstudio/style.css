@@ -540,14 +540,51 @@ li p,
   position: relative;
   z-index: auto !important;
 
-  margin: 0 auto;
   height: 130px;
-
-  background-image: url('images/object947163410.png'), url('images/header.png');
-  background-repeat: no-repeat;
-  background-position: 0 3px, 0 0;
+  margin: 0 auto;
 }
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 0;
 
+  display: block;
+
+  width: 310px;
+}
+.logo img {
+  width: 100%;
+}
+.phone-nav {
+  position: absolute;
+  top: 70px;
+  right: 0;
+
+  padding: 8px 8px 8px 40px;
+
+  text-align: right;
+
+  background-color: #809BA8;
+}
+.phone-nav li {
+  display: inline-block;
+  margin: 0 5px;
+}
+.phone-nav li a {
+  height: 16px;
+
+  text-decoration: underline;
+
+  color: #005d77;
+}
+.phone-nav li:last-child {
+  margin-right: 0;
+}
+.phone-nav li:last-child a {
+  font-weight: bold;
+
+  text-decoration: none;
+}
 .responsive .my-header {
   background-image: url('images/header.png');
   background-position: center center;
@@ -560,6 +597,11 @@ li p,
 
 .my-nav {
   /*    bottom:     5px; */
+  position: absolute;
+  /*    bottom:     5px; */
+  top: 20px;
+  /*    bottom:     5px; */
+
   width: 100%;
   /*    position: absolute; */
   margin: 0;
@@ -594,8 +636,9 @@ ul.my-hmenu li {
   position: relative;
   z-index: 5;
 
-display: block;
-float: right;
+  display: block;
+  float: right;
+
   margin: 0;
   padding: 0;
 
@@ -1788,8 +1831,8 @@ label.my-radiobutton.hovered:before {
   margin-top: 10px;
 }
 .my-block {
-  margin: 3px;
-  padding: 5px;
+  margin: 0 3px 3px;
+  padding: 0 5px 5px;
 }
 div.my-block img {
   margin: 0;
@@ -2635,9 +2678,38 @@ blockquote p,
   width: 200px;
   margin: 0 auto;
 }
-
-
-
+#rev_slider_1_1 {
+  padding: 5px 0 0;
+  margin: 0 0 10px;
+}
+.home-navi {
+  padding: 5px 0;
+}
+.home-navi span{
+  display: inline-block;
+  float: left;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #0085a6;
+  padding: 20px 0;
+  margin: 11px 20px 0 80px;
+}
+.my-home-menu {
+  padding: 20px 0 0;
+  margin: 0 0 20px;
+}
+.my-home-menu li{
+  display: inline-block;
+  margin: 0 1px 5px;
+}
+.my-home-menu li a{
+  display: block;
+  padding: 20px;
+  background-color: #0085a6;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 #comment {
   width: 99%;
 }

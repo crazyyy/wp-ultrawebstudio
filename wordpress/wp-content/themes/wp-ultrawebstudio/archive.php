@@ -4,13 +4,12 @@
  * archive.php
  *
  * The archive template. Used when a category, author, or date is queried.
- * Note that this template will be overridden by category.php, author.php, and date.php for their respective query types. 
+ * Note that this template will be overridden by category.php, author.php, and date.php for their respective query types.
  *
  * More detailed information about template’s hierarchy: http://codex.wordpress.org/Template_Hierarchy
  *
  */
 get_header(); ?>
-			<?php get_sidebar('top'); ?>
 			<?php
 			if (have_posts()) {
 				global $posts;

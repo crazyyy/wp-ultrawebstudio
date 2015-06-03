@@ -5,11 +5,10 @@
  * single.php
  *
  * The single post template. Used when a single post is queried.
- * 
+ *
  */
 get_header();
 ?>
-			<?php get_sidebar('top'); ?>
 			<?php
 			if (have_posts()) {
 				/* Display navigation to next/previous posts when applicable */

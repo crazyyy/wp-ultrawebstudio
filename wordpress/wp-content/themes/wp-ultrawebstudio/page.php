@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-			<?php get_sidebar('top'); ?>
 			<?php
 
 			if (have_posts()) {

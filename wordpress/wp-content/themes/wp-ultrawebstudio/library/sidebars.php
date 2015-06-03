@@ -9,14 +9,7 @@ function theme_add_sidebar($group, $id, $name, $description) {
 
 theme_add_sidebar('default', 'primary-widget-area', __('Primary Widget Area', THEME_NS), __("This is the default sidebar, visible on 2 or 3 column layouts. If no widgets are active, the default theme widgets will be displayed instead.", THEME_NS));
 
-theme_add_sidebar('header', 'header-widget-area', __('Header Widget Area', THEME_NS), __("The header widget area. Use the unique widget ids to control the design and position of individual widgets with CSS code.", THEME_NS)); 
 
-theme_add_sidebar('nav', 'first-nav-widget-area', __('First Navigation Widget Area', THEME_NS), __("This sidebar is displayed before the horizontal menu.", THEME_NS));
-theme_add_sidebar('nav', 'second-nav-widget-area', __('Second Navigation Widget Area', THEME_NS), __("This sidebar is displayed after the horizontal menu.", THEME_NS));
-theme_add_sidebar('top', 'first-top-widget-area', __('First Top Widget Area', THEME_NS), __("This sidebar is displayed above the main content.", THEME_NS));
-theme_add_sidebar('top', 'second-top-widget-area', __('Second Top Widget Area', THEME_NS), __("This sidebar is displayed above the main content.", THEME_NS));
-theme_add_sidebar('bottom', 'first-bottom-widget-area', __('First Bottom Widget Area', THEME_NS), __("This sidebar is displayed below the main content.", THEME_NS));
-theme_add_sidebar('bottom', 'second-bottom-widget-area', __('Second Bottom Widget Area', THEME_NS), __("This sidebar is displayed below the main content.", THEME_NS));
 if (theme_get_option('theme_override_default_footer_content')) {
     theme_add_sidebar('footer', 'first-footer-widget-area', __('First Footer Widget Area', THEME_NS), __("The first footer widget area. You can add a text widget for custom footer text.", THEME_NS));
     theme_add_sidebar('footer', 'second-footer-widget-area', __('Second Footer Widget Area', THEME_NS), __("The second footer widget area.", THEME_NS));
